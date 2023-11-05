@@ -1,0 +1,30 @@
+{
+    "name": "qu1x-roundcube/signifix",
+    "type": "roundcube-plugin",
+    "description": "Formats bytes with metric or binary prefixes using four significant figures.",
+    "keywords": [
+        "number-formatter",
+        "fixed-significance",
+        "metric-prefix",
+        "binary-prefix",
+        "unit-prefix"
+    ],
+    "homepage": "https://github.com/qu1x/roundcube-signifix",
+    "license": "Fair",
+    "authors": [
+        {
+            "name": "Rouven Spreckels",
+            "email": "rs@qu1x.dev",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.3.0",
+        "roundcube/plugin-installer": ">=0.3.1"
+    },
+    "extra": {
+        "roundcube": {
+            "min-version": "1.6.4"
+        }
+    }
+}

@@ -1,0 +1,49 @@
+<?php
+
+// Use white-space over locale-aware thousands separator.
+//
+// The decimal mark and thousands separator are locale-aware as defined in
+// `./localization/*.inc`. The thousands separater can be configured to always
+// be a space, as [internationally] recommended, instead of a comma or a point.
+// Defaults to `false` as message sizes are usually not communicated between
+// users and hence are only visible to users who are familiar with their chosen
+// locale setting.
+//
+// [internationally]: https://en.wikipedia.org/wiki/Decimal_separator
+$config['signifix_use_ws'] = false;
+
+// Use metric instead of binary prefixes.
+//
+// Defaults to `false` as according to the [IMAP4 QUOTA extension], quota usage
+// and limit is reported in units of 1 KiB where fractional parts are rounded
+// up. Thus, a quota limit is usually defined with binary prefixes as well.
+// Prefix conversations from metric to binary and back loose accuracy due to
+// rounding. This is only in displaying these values, not in applying them. If
+// you prefer more intuitive metric prefixes, especially for general message
+// sizes, you can avoid rounding by defining your quota limit in integral
+// multiples of the [LCM] of the unit in which you define a quota limit (e.g.,
+// kB, MB, GB) and the unit in which it is reported (i.e., 1 KiB).
+//
+//   * LCM( B, KiB) = 1.024 kB
+//   * LCM(kB, KiB) = 128.0 kB
+//   * LCM(MB, KiB) = 16.00 MB (PostfixAdmin, e.g., 96 MB, 512 MB, 4096 MB)
+//   * LCM(GB, KiB) = 2.000 GB
+//
+// If you use PostfixAdmin, set `$CONF['quota_multiplier']` to:
+//
+//   * `1000000` for metric prefixes
+//   * `1048576` for binary prefixes
+//
+//     In this case, you might want to overwrite following language labels in
+//     your PostfixAdmin configuration and replace MB with MiB:
+//
+//       * `$PALANG['pOverview_mailbox_quota']`
+//       * `$PALANG['pOverview_get_quota']`
+//       * `$PALANG['pEdit_mailbox_quota_text']`
+//       * `$PALANG['mb_max']`
+//       * `$PALANG['pAdminList_domain_quota']`
+//       * `$PALANG['pAdminEdit_domain_maxquota_text']`
+//
+// [IMAP4 QUOTA extension]: https://www.rfc-editor.org/rfc/rfc2087
+// [LCP]: https://en.wikipedia.org/wiki/Least_common_multiple
+$config['signifix_metric'] = false;
