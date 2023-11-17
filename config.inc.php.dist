@@ -3,7 +3,7 @@
 // Use white-space over locale-aware thousands separator.
 //
 // The decimal mark and thousands separator are locale-aware as defined in
-// `./localization/*.inc`. The thousands separater can be configured to always
+// `./localization/*.inc`. The thousands separator can be configured to always
 // be a space, as [internationally] recommended, instead of a comma or a point.
 // Defaults to `false` as message sizes are usually not communicated between
 // users and hence are only visible to users who are familiar with their chosen
