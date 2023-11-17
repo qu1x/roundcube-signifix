@@ -178,7 +178,7 @@ class Signifix {
 		if ($this->numerator < 0)
 			$plus = '';
 		$parts = $this->parts();
-		return $sign.abs($parts[0]).$decimal_mark
+		return $plus.abs($parts[0]).$decimal_mark
 			.sprintf('%0'.$this->exponent.'d ', $parts[1]).$this->symbol();
 	}
 	public function alt($plus = '') {
